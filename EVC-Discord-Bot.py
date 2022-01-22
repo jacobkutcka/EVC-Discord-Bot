@@ -11,7 +11,8 @@ import discord
 from discord.ext import commands
 
 # Discord section
-TOKEN = <insert token here>
+with open('token.txt', 'r') as f:
+    TOKEN = f.read()
 description = '''EVC Lab Bot'''
 bot = commands.Bot(command_prefix='!', description=description)
 
@@ -19,9 +20,9 @@ bot = commands.Bot(command_prefix='!', description=description)
 GPIO.setmode(GPIO.BOARD)
 
 # Define button pins
-closedbutton = #
-pendingbutton = #
-openbutton = #
+openbutton = 3
+pendingbutton = 5
+closedbutton = 7
 
 # Button setup
 GPIO.setup(closedbutton, GPIO.IN, pull_up_down=GPIO.PUD_UP)
